@@ -22,3 +22,5 @@ public class MainApplication extends Application {
         launch();
     }
 }
+
+// https://github.com/Kingkon963/PersonalDiary
