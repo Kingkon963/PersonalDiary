@@ -24,4 +24,5 @@
     -fx-background-color: linear-gradient(to bottom, #A543F1 0%, #7D7AFF 100%);
     -fx-text-fill: white;
     -fx-font-size: 24;
+    -fx-cursor: hand;
 }

@@ -23,4 +23,3 @@ public class MainApplication extends Application {
     }
 }
 
-// https://github.com/Kingkon963/PersonalDiary
