@@ -1,6 +1,7 @@
 package com.example.personaldiary;
 
 import com.example.personaldiary.controllers.DashboardController;
+import com.example.personaldiary.controllers.EditorController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -30,10 +31,16 @@ public class Router {
         stage.setScene(scene);
     }
 
-    public void switchToDashboardScene(ActionEvent event, User user) throws IOException {
+    public void switchToDashboardScene(ActionEvent event, User user) {
         // Parent loginFxml = FXMLLoader.load(getClass().getResource("fxml/dashboard.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/dashboard.fxml"));
-        Parent dashboardFxml = loader.load();
+        Parent dashboardFxml = null;
+        try {
+            dashboardFxml = loader.load();
+        } catch (IOException e) {
+            System.out.println("Failed to load dashboard.fxml");
+            e.printStackTrace();
+        }
 
         DashboardController dashboardController = loader.getController();
         dashboardController.setUser(user);

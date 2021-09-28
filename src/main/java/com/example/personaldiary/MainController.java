@@ -104,13 +104,7 @@ public class MainController {
                         String username = res.getString("username");
                         int id = res.getInt("idusers");
                         User user = new User(id, username);
-
-                        try{
-                            router.switchToDashboardScene(event, user);
-                        } catch (IOException e){
-                            System.out.println("Failed to switch DashboardScene");
-                            e.printStackTrace();
-                        }
+                        router.switchToDashboardScene(event, user);
                     }
                 }
                 while(res.next());
