@@ -13,5 +13,7 @@ module com.example.personaldiary {
     // requires mysql.connector.java;
 
     opens com.example.personaldiary to javafx.fxml;
+    opens com.example.personaldiary.controllers to javafx.fxml;
     exports com.example.personaldiary;
+    exports com.example.personaldiary.controllers;
 }
