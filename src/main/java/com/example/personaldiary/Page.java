@@ -13,6 +13,11 @@ public class Page {
         id = -1;
     }
 
+    public Page(String title, Date datetime) {
+        this.title = title;
+        this.datetime = datetime;
+    }
+
     public Page(String title, Date datetime, String content, int author) {
         this.title = title;
         this.datetime = datetime;

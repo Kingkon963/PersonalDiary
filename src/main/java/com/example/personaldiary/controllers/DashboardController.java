@@ -1,22 +1,24 @@
 package com.example.personaldiary.controllers;
 
+import com.example.personaldiary.DBConn;
 import com.example.personaldiary.Page;
 import com.example.personaldiary.Router;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.global.User;
+import com.example.personaldiary.User;
 
 import java.io.IOException;
-import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
-import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable {
+public class DashboardController {
     private User user;
 
     @FXML private Button newBtn;
@@ -25,15 +27,17 @@ public class DashboardController implements Initializable {
     @FXML private TableColumn<Page, String> titleColumn;
     @FXML private TableColumn<Page, Date> dateColumn;
 
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
+
+    public void init(User user) {
+        System.out.println("Init");
+        setUser(user);
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-        dateColumn.setCellValueFactory((new PropertyValueFactory<>("date")));
+        dateColumn.setCellValueFactory((new PropertyValueFactory<>("datetime")));
 
         myTable.getColumns().clear();
         myTable.getColumns().add(titleColumn);
         myTable.getColumns().add(dateColumn);
-        myTable.setItems(getPages());
+        myTable.setItems(getPages(user));
     }
 
     public void setUser(User user) {
@@ -41,11 +45,27 @@ public class DashboardController implements Initializable {
         greetingLabel.setText("Hi, " + user.getName() + "!");
     }
 
-    private ObservableList<Page> getPages() {
+    public ObservableList<Page> getPages(User user) {
+        DBConn DB = new DBConn();
+        Connection conn = DB.getConnection();
         ObservableList<Page> pages = FXCollections.observableArrayList();
-//        pages.add(new Page("First Day at School"));
-//        pages.add(new Page("First Day at College"));
-//        pages.add(new Page("First Day at Uni"));
+
+        try {
+            Statement getPagesStatement = conn.createStatement();
+            String getPagesQuery = String.format("select title, datetime from pages where author=%d;", user.getId());
+            ResultSet res = getPagesStatement.executeQuery(getPagesQuery);
+            while(res.next()){
+                String title = res.getString("title");
+                Date datetime = res.getDate("datetime");
+                System.out.println(title + " " + datetime);
+                pages.add(new Page(title, datetime));
+            }
+        } catch (SQLException e) {
+            System.out.println("Failed to getPages");
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         return pages;
     }

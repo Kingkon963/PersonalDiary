@@ -1,4 +1,4 @@
-package model.global;
+package com.example.personaldiary;
 
 public class User {
     private int id;

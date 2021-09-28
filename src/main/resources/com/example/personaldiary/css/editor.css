@@ -32,3 +32,12 @@
 .active {
     -fx-background-color: #639947;
 }
+
+.backBtn {
+    -fx-cursor: hand;
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 50%;
+    -fx-font-size: 18;
+    -fx-text-fill: white;
+}

@@ -3,12 +3,13 @@ package com.example.personaldiary;
 import com.example.personaldiary.controllers.DashboardController;
 import com.example.personaldiary.controllers.EditorController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import model.global.User;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -43,10 +44,16 @@ public class Router {
         }
 
         DashboardController dashboardController = loader.getController();
-        dashboardController.setUser(user);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(dashboardFxml);
+        scene = new Scene(Objects.requireNonNull(dashboardFxml));
+        scene.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("Scene displayed");
+                dashboardController.init(user);
+            }
+        });
         stage.setScene(scene);
     }
 

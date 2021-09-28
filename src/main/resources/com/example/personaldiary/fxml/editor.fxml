@@ -33,6 +33,7 @@
                   <Button fx:id="delBtn" mnemonicParsing="false" onAction="#delete" styleClass="menuBtn" text="Delete" />
                </children>
             </VBox>
+            <Button layoutX="18.0" layoutY="27.0" mnemonicParsing="false" onAction="#back" styleClass="backBtn" text="&lt;" />
          </children>
       </Pane>
       <TextField fx:id="title" layoutX="247.0" layoutY="47.0" prefHeight="55.0" prefWidth="1164.0" promptText="Title">

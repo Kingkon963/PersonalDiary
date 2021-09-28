@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
-import model.global.User;
+import com.example.personaldiary.User;
 
 import java.net.URL;
 import java.sql.*;
@@ -97,6 +97,12 @@ public class EditorController implements Initializable {
         // set Page id to -1
         page.setId(-1);
         // Goto Dashboard
+        Router router = new Router();
+        router.switchToDashboardScene(event, user);
+    }
+
+    @FXML
+    public void back(ActionEvent event){
         Router router = new Router();
         router.switchToDashboardScene(event, user);
     }
