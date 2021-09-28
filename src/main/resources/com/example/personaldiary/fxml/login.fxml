@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.personaldiary.MainController">
  <children>
           <Button id="decedentRetBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="1029.0" layoutY="35.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="368.0" text="Retrieve Decedent's Diary" textAlignment="CENTER">
@@ -27,7 +28,7 @@
          </font>
       </Label>
       <TextField fx:id="logUserId" alignment="CENTER" layoutX="424.0" layoutY="500.0" prefHeight="57.0" prefWidth="589.0" promptText="Enter Your UserID" styleClass="field" />
-      <TextField fx:id="logUserPass" alignment="CENTER" layoutX="425.0" layoutY="592.0" prefHeight="57.0" prefWidth="589.0" promptText="Enter Your Password" styleClass="field" />
+      <PasswordField fx:id="logUserPass" alignment="CENTER" layoutX="425.0" layoutY="592.0" prefHeight="57.0" prefWidth="589.0" promptText="Enter Your Password" styleClass="field" />
       <Button layoutX="587.0" layoutY="696.0" mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="254.0" styleClass="ourBtn" text="Login" />
       <Label fx:id="title1" alignment="CENTER" layoutX="-6.0" layoutY="777.0" prefHeight="38.0" prefWidth="1444.0" text="Don't have an Account?" textAlignment="CENTER" textFill="WHITE">
          <font>

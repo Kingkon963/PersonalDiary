@@ -16,8 +16,11 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1440, 900);
         stage.setTitle("Personal Diary");
         stage.setScene(scene);
+        Image icon=new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/logo.png")));
+        stage.getIcons().add(icon);
         stage.setResizable(false);
         stage.show();
+
     }
 
     public static void main(String[] args) {
