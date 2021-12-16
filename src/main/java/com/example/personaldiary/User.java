@@ -1,4 +1,4 @@
-package model.global;
+package com.example.personaldiary;
 
 public class User {
     private int id;
@@ -15,5 +15,9 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
     }
 }
