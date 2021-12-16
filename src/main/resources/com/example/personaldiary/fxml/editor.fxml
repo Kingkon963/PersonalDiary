@@ -41,6 +41,6 @@
             <Font size="28.0" />
          </font>
       </TextField>
-      <HTMLEditor fx:id="textArea" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="247.0" layoutY="125.0" prefHeight="749.0" prefWidth="1169.0" />
+      <HTMLEditor fx:id="textArea" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="247.0" layoutY="120.0" prefHeight="748.0" prefWidth="1167.0" />
    </children>
 </AnchorPane>

@@ -37,7 +37,7 @@
                         <String fx:value="active" />
                      </styleClass>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="menuBtn" text="Settings" />
+                  <Button mnemonicParsing="false" onAction="#gotoSettings" styleClass="menuBtn" text="Settings" />
                </children>
             </VBox>
          </children>
@@ -48,7 +48,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="myTable" fixedCellSize="50.0" layoutX="255.0" layoutY="179.0" prefHeight="603.0" prefWidth="1154.0" style="-fx-border-width: 0px;">
+      <TableView fx:id="myTable" fixedCellSize="50.0" layoutX="255.0" layoutY="179.0" onMouseClicked="#pageItemClicked" prefHeight="603.0" prefWidth="1154.0" style="-fx-border-width: 0px;">
         <columns>
           <TableColumn fx:id="titleColumn" prefWidth="709.3333129882812" text="Title" />
           <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="429.66668701171875" text="Date" />

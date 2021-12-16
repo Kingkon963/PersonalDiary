@@ -9,16 +9,18 @@ public class Page {
     private String content;
     private int author;
 
-    public Page() {
-        id = -1;
+    public Page(int id) {
+        this.id = id;
     }
 
-    public Page(String title, Date datetime) {
+    public Page(int id, String title, Date datetime) {
+        this.id = id;
         this.title = title;
         this.datetime = datetime;
     }
 
     public Page(String title, Date datetime, String content, int author) {
+        super();
         this.title = title;
         this.datetime = datetime;
         setContent(content);
